@@ -1,0 +1,330 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+#game-container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "board dashboard";
+    grid-template-columns: 3fr 1fr; /* Adjusted column ratio */
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+    width: 95vw;
+    max-width: 1400px;
+    height: 95vh; /* Increased height */
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+#header-controls button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+#header-controls button:hover {
+    background-color: #5a6268;
+}
+
+#new-game-btn {
+    background-color: #dc3545;
+}
+
+#new-game-btn:hover {
+    background-color: #c82333;
+}
+
+#game-board {
+    grid-area: board;
+    position: relative; /* Needed for player token positioning */
+    display: grid;
+    grid-template-columns: 100px repeat(6, 1fr) 100px; /* 8 columns */
+    grid-template-rows: 100px repeat(4, 1fr) 100px;    /* 6 rows */
+    gap: 5px;
+    background-color: #d4edda;
+    border: 2px solid #c3e6cb;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.board-cell {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 11px;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.center-area {
+    grid-column: 2 / 8;
+    grid-row: 2 / 6;
+    background-color: #a3cda3;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+#player-dashboard {
+    grid-area: dashboard;
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#player-info {
+    flex-grow: 1;
+}
+
+/* Specific cell placements */
+.cell-0 { grid-column: 1; grid-row: 1; }
+.cell-1 { grid-column: 2; grid-row: 1; }
+.cell-2 { grid-column: 3; grid-row: 1; }
+.cell-3 { grid-column: 4; grid-row: 1; }
+.cell-4 { grid-column: 5; grid-row: 1; }
+.cell-5 { grid-column: 6; grid-row: 1; }
+.cell-6 { grid-column: 7; grid-row: 1; }
+.cell-7 { grid-column: 8; grid-row: 1; }
+.cell-8 { grid-column: 8; grid-row: 2; }
+.cell-9 { grid-column: 8; grid-row: 3; }
+.cell-10 { grid-column: 8; grid-row: 4; }
+.cell-11 { grid-column: 8; grid-row: 5; }
+.cell-12 { grid-column: 8; grid-row: 6; }
+.cell-13 { grid-column: 7; grid-row: 6; }
+.cell-14 { grid-column: 6; grid-row: 6; }
+.cell-15 { grid-column: 5; grid-row: 6; }
+.cell-16 { grid-column: 4; grid-row: 6; }
+.cell-17 { grid-column: 3; grid-row: 6; }
+.cell-18 { grid-column: 2; grid-row: 6; }
+.cell-19 { grid-column: 1; grid-row: 6; }
+.cell-20 { grid-column: 1; grid-row: 5; }
+.cell-21 { grid-column: 1; grid-row: 4; }
+.cell-22 { grid-column: 1; grid-row: 3; }
+.cell-23 { grid-column: 1; grid-row: 2; }
+
+/* Cell type colors */
+.cell-payday { background-color: #c3e6cb; }
+.cell-opportunity { background-color: #bee5eb; }
+.cell-market { background-color: #ffeeba; }
+.cell-doodad { background-color: #f5c6cb; }
+.cell-charity { background-color: #d6d8db; }
+.cell-baby { background-color: #f5c6cb; }
+.cell-downsized { background-color: #f5c6cb; }
+.cell-start { font-weight: bold; background-color: #f8d7da; }
+
+/* Player Dashboard Styles */
+#player-info h3, #player-info h4 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.financial-sheet table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.financial-sheet th, .financial-sheet td {
+    padding: 6px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.financial-sheet th {
+    background-color: #e9ecef;
+    font-weight: normal;
+}
+
+.financial-sheet .amount {
+    text-align: right;
+    font-family: monospace;
+}
+
+.financial-sheet .highlight {
+    font-weight: bold;
+    background-color: #fff3cd;
+}
+
+.cash-display {
+    font-size: 20px;
+    font-weight: bold;
+    color: #28a745;
+    text-align: center;
+    background: #e9f5ec;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Game Controls */
+#game-controls {
+    margin-top: auto; /* Pushes controls to the bottom */
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+#dice-area {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#dice-result {
+    font-weight: bold;
+    font-size: 22px;
+    color: #007bff;
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+}
+
+#roll-dice-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#roll-dice-btn:hover {
+    background-color: #0056b3;
+}
+
+#roll-dice-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Player Token */
+.player-token {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #007bff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transition: top 0.5s ease-in-out, left 0.5s ease-in-out;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* Card Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+#card-title {
+    margin-top: 0;
+    color: #333;
+}
+
+#card-description {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#card-details {
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+#card-details p {
+    margin: 5px 0;
+}
+
+#card-actions button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 10px;
+}
+
+#card-actions button:hover {
+    background-color: #218838;
+}
+
+#close-modal-btn {
+    background-color: #6c757d;
+}
+
+#close-modal-btn:hover {
+    background-color: #5a6268;
+}

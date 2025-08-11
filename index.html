@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>現金流遊戲</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>現金流遊戲</h1>
+            <div id="header-controls">
+                <button id="save-game-btn">儲存遊戲</button>
+                <button id="new-game-btn">新遊戲</button>
+            </div>
+        </header>
+
+        <main id="game-board">
+            <!-- 遊戲圖板將會動態生成於此 -->
+            <p>遊戲圖板載入中...</p>
+        </main>
+
+        <aside id="player-dashboard">
+            <h2>玩家資訊</h2>
+            <div id="player-info">
+                <!-- 玩家資訊將會顯示於此 -->
+            </div>
+            <div id="game-controls">
+                <div id="dice-area">
+                    <span>骰子: </span>
+                    <span id="dice-result">-</span>
+                </div>
+                <button id="roll-dice-btn">擲骰子</button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Card Modal -->
+    <div id="card-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2 id="card-title"></h2>
+            <p id="card-description"></p>
+            <div id="card-details"></div>
+            <div id="card-actions">
+                <!-- Action buttons will be added here by JS -->
+                <button id="close-modal-btn">關閉</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

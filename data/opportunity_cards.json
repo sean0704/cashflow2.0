@@ -1,0 +1,31 @@
+[
+    {
+        "card_type": "stock",
+        "title": "MYT4U 股票",
+        "description": "每個人都在談論的熱門科技股！分析師預測它會漲。",
+        "cost_per_share": 10,
+        "trading_range": "5-40",
+        "cashflow": 0,
+        "action_text": "購買任意數量的股份"
+    },
+    {
+        "card_type": "real_estate",
+        "title": "公寓 (3房2廳)",
+        "description": "市中心一間狀況不錯的公寓，可作為出租物業。",
+        "cost": 60000,
+        "down_payment": 4000,
+        "mortgage": 56000,
+        "cashflow": 210,
+        "action_text": "購買此房地產"
+    },
+    {
+        "card_type": "business",
+        "title": "自動洗車生意",
+        "description": "一個投資他人建立的自動洗車生意機會。",
+        "cost": 300000,
+        "down_payment": 15000,
+        "mortgage": 285000,
+        "cashflow": 1500,
+        "action_text": "購買此生意"
+    }
+]

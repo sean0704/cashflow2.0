@@ -1,0 +1,23 @@
+[
+    {
+        "title": "醫生",
+        "income": 13200,
+        "expenses": {
+            "taxes": 3420,
+            "home_mortgage_payment": 1900,
+            "school_loan_payment": 750,
+            "car_payment": 400,
+            "credit_card_payment": 220,
+            "other_expenses": 3000
+        },
+        "assets": {
+            "savings": 400
+        },
+        "liabilities": {
+            "home_mortgage": 200000,
+            "school_loans": 150000,
+            "car_loans": 15000,
+            "credit_card_debt": 7000
+        }
+    }
+]

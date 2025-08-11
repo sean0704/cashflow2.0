@@ -1,0 +1,25 @@
+[
+    {
+        "title": "公寓買家出現",
+        "description": "一位投資者願意出價 $75,000 購買你的 3房2廳公寓。",
+        "affects": "real_estate",
+        "property_type": "公寓 (3房2廳)",
+        "offer": 75000,
+        "action_text": "你可以選擇出售你的房產"
+    },
+    {
+        "title": "股市上漲",
+        "description": "科技股全面上漲！所有價格在 $20 以下的股票，現在都以 $40 的價格交易。",
+        "affects": "stock",
+        "stock_symbol": "ALL_UNDER_20",
+        "new_price": 40,
+        "action_text": "你可以選擇出售你的股票"
+    },
+    {
+        "title": "利率上升",
+        "description": "利率上升，所有人的房貸支出增加 10%。",
+        "affects": "all_players",
+        "effect_type": "increase_mortgage_payment",
+        "percentage": 10
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "card_type": "doodad",
+        "title": "買新船",
+        "description": "你一時衝動買了一艘新船！",
+        "cost": 8000,
+        "action_text": "支付 $8,000"
+    },
+    {
+        "card_type": "doodad",
+        "title": "昂貴的晚餐",
+        "description": "為了慶祝...嗯...某件事，你請所有朋友吃了一頓昂貴的晚餐。",
+        "cost": 500,
+        "action_text": "支付 $500"
+    },
+    {
+        "card_type": "doodad",
+        "title": "新音響系統",
+        "description": "你的車需要一套新的音響系統。",
+        "cost": 1000,
+        "action_text": "支付 $1,000"
+    }
+]
